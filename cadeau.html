@@ -2,36 +2,70 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Gefeliciteerd!</title>
+    <title>Systeem Gehackt - Gefeliciteerd!</title>
     <script>
-        // Functie om de cookie op te zoeken
+        // BEVEILIGING: Controleer of ze echt gehackt heeft
         function checkToegang() {
             const cookies = document.cookie.split('; ');
             const cookieData = cookies.find(row => row.startsWith('Sessie_Sleutel='));
             const waarde = cookieData ? cookieData.split('=')[1] : null;
 
-            // Als de cookie niet de juiste waarde heeft, stuur haar terug
+            // Als de cookie er niet is of fout is, stuur haar terug!
             if (waarde !== "Demi21Party") {
-                alert("GEEN TOEGANG: Je moet eerst het systeem hacken!");
+                alert("HACK MISLUKT: Je hebt geen geldige sessie-sleutel! Terug naar het begin.");
                 window.location.href = "index.html";
             }
         }
-
-        // Voer de check direct uit bij het laden van de pagina
+        // Voer deze check direct uit
         checkToegang();
     </script>
     <style>
-        body { text-align: center; font-family: sans-serif; background: #ffe6f2; padding-top: 50px; }
-        .card { background: white; padding: 50px; display: inline-block; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        h1 { color: #ff0066; }
+        body { 
+            background-color: #111; 
+            color: #fff; 
+            font-family: 'Courier New', monospace; 
+            text-align: center; 
+            margin: 0; 
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            border: 3px solid #00ff00;
+            padding: 30px;
+            background: rgba(0, 40, 0, 0.8);
+            box-shadow: 0 0 30px #00ff00;
+            border-radius: 10px;
+        }
+        .niels-foto {
+            width: 100%;
+            max-width: 500px;
+            border: 3px solid #00ff00;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        h1 { color: #00ff00; font-size: 2.5em; margin-bottom: 5px; }
+        h2 { color: #ff0055; margin-top: 0; }
+        .message { font-size: 1.2em; margin: 20px 0; line-height: 1.6; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>Gefeliciteerd Demi! 🎈</h1>
-        <p>Je bent nu officieel 21 jaar en een gecertificeerd hacker.</p>
-        <hr>
-        <p><strong>Jouw Cadeau:</strong> [TYP HIER JE CADEAU]</p>
+
+    <div class="container">
+        <h1>MISSIE VOLBRACHT! 🔓</h1>
+        <h2>Gefeliciteerd met je 21e verjaardag Schatje!❤️</h2>
+        
+        <p class="message">Je hebt de beveiliging succesvol omzeild als een echte hacker.</p>
+        
+        <p class="message"><strong>Jouw Cadeau:</strong><br>
+        Ik neem jou mee uit eten! De reservering mag je zelf bepalen zoals je ziet, worden excuses worden niet geaccepteerd.</p>
+
+        <img src="uitetenniels.png" alt="Niels is klaar voor het etentje" class="niels-foto">
+
+        <p style="margin-top: 25px; color: #00ff00; font-weight: bold; font-size: 1.3em;">
+            Eet smakelijk! ❤️
+        </p>
     </div>
+
 </body>
 </html>

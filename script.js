@@ -1,4 +1,4 @@
-// --- 1. MATRIX ANIMATIE ---
+
 const canvas = document.getElementById('matrix');
 const ctx = canvas.getContext('2d');
 
@@ -13,7 +13,7 @@ const drops = Array(Math.floor(columns)).fill(1);
 function drawMatrix() {
     ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#0F0";
+    ctx.fillStyle = "#0F0"; // Groene tekst
     ctx.font = fontSize + "px arial";
 
     for (let i = 0; i < drops.length; i++) {
@@ -23,27 +23,30 @@ function drawMatrix() {
         drops[i]++;
     }
 }
+
 setInterval(drawMatrix, 33);
 
 
-// DIT IS HET WACHTWOORD in Base64 dus zoek het maar uit ;) je kan het ook ergens anders vinden mogelijk in wat we bijden lekker vinden ;)
+
+// Het wachtwoord in geheimtaal MISSCHIEN EEN HINT? ;)" je kan het ook vinden bij cookies ;)
 const geheim = "RGVtaTIxUGFydHk="; 
 
-// Plaats het wachtwoord in de cookie zodra de pagina laadt
+
 document.cookie = "Sessie_Sleutel=" + atob(geheim) + "; path=/; max-age=3600";
 
 function checkPassword() {
-    const input = document.getElementById('passwordInput').value;
+    const ingevoerdWachtwoord = document.getElementById('passwordInput').value;
     
-    // Zoek de cookie waarde op
+    // We zoeken de cookie op in de browser
     const cookies = document.cookie.split('; ');
     const cookieData = cookies.find(row => row.startsWith('Sessie_Sleutel='));
-    const correctPassword = cookieData ? cookieData.split('=')[1] : null;
+    const correcteSleutel = cookieData ? cookieData.split('=')[1] : null;
 
-    if (input === correctPassword) {
+    // We vergelijken haar invoer met de cookie
+    if (ingevoerdWachtwoord === correcteSleutel) {
         alert("TOEGANG VERLEEND. Welkom Demi.");
         window.location.href = "cadeau.html";
     } else {
-        alert("FOUTIEVE CODE. Systeembeheerder heeft cookies achtergelaten.");
+        alert("FOUTIEVE CODE. Kijk in de Developer Tools bij Cookies!");
     }
 }

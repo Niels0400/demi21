@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <title>Systeem Inbraak - Demi 21</title>
     <style>
+        /* Basis styling voor de hacker-look */
         body { background-color: #000; margin: 0; overflow: hidden; font-family: 'Courier New', Courier, monospace; }
         
-        /* De Matrix achtergrond */
+        /* Zorgt dat de Matrix letters op de achtergrond blijven */
         #matrix { position: fixed; top: 0; left: 0; z-index: -1; }
 
-        /* Het inlogvenster */
+        /* Het inlogkastje in het midden van het scherm */
         .login-box {
             position: absolute; top: 50%; left: 50%;
             transform: translate(-50%, -50%);
@@ -21,7 +22,7 @@
         input { 
             padding: 12px; width: 250px; background: #000; 
             border: 1px solid #00ff00; color: #00ff00; margin-bottom: 20px; 
-            text-align: center; font-size: 1.1em;
+            text-align: center; font-size: 1.1em; outline: none;
         }
 
         button { 
@@ -39,11 +40,11 @@
 
     <div class="login-box">
         <h1>SYSTEEM VERGRENDELD</h1>
-        <p>PROBEER MAAR TE HACKEN SCHATJE :) love you <strong>DEMI</strong></p>
+        <p>Toegang voorbehouden aan: <strong>DEMI</strong></p>
         <input type="password" id="passwordInput" placeholder="VOER TOEGANGSCODE IN">
         <br>
         <button onclick="checkPassword()">ONTGRENDELEN</button>
-        <p class="hint">Systeemfout: Toegangscode opgeslagen in ergens wat we samen erg lekker vinden</p>
+        <p class="hint">Systeemfout: Controleer de iets wat we allebij erg lekker vinden</p>
     </div>
 
     <script src="script.js"></script>
