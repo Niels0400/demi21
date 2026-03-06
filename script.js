@@ -38,6 +38,6 @@ function checkPassword() {
         // AANGEPAST: Stuur haar eerst naar het lieve bericht!
         window.location.href = "bericht.html"; 
     } else {
-        alert("FOUTIEVE CODE. Kijk in de Developer Tools bij Cookies!");
+        alert("Niet gokken he Noobje");
     }
 }
