@@ -2,128 +2,34 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Gefeliciteerd Demi! 🎈</title>
+    <title>Jouw Cadeau! 🎁</title>
     <script>
-        // BEVEILIGING: Controleer of de hack is uitgevoerd
         function checkToegang() {
             const cookies = document.cookie.split('; ');
             const cookieData = cookies.find(row => row.startsWith('Sessie_Sleutel='));
             const waarde = cookieData ? cookieData.split('=')[1] : null;
-
             if (waarde !== "Demi21Party") {
-                alert("HACK MISLUKT: Je hebt de code nog niet gekraakt!");
                 window.location.href = "index.html";
             }
         }
         checkToegang();
     </script>
     <style>
-        /* Zorgt dat randen (borders) geen elementen uitrekken */
         * { box-sizing: border-box; }
-
-        /* Vrolijke roze achtergrond */
-        body { 
-            background: linear-gradient(135deg, #ffd1ff 0%, #fae1dd 100%);
-            color: #333; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            text-align: center; 
-            margin: 0; 
-            padding: 20px;
-            min-height: 100vh;
-        }
-        
-        /* Het witte 'kaartje' in het midden */
-        .container {
-            max-width: 800px;
-            width: 95%; /* Zorgt dat hij op kleinere schermen ook goed past */
-            margin: 20px auto;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
-        }
-
-        h1 { color: #ff4d85; font-size: 2.8em; margin-bottom: 5px; text-transform: uppercase; }
-        .hacker-msg { font-family: 'Courier New', monospace; color: #888; font-size: 0.9em; margin-bottom: 30px; }
+        body { background: linear-gradient(135deg, #ffd1ff 0%, #fae1dd 100%); color: #333; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; margin: 0; padding: 20px; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .container { max-width: 600px; width: 95%; background: rgba(255, 255, 255, 0.95); padding: 40px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2); }
+        h2 { color: #ff4d85; font-size: 2.5em; margin-bottom: 10px; margin-top: 0; }
         .intro-text { font-size: 1.2em; color: #555; }
-
-        /* Polaroid Galerij Styling - Aangepast voor 4 op een rij */
-        .gallery {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap; /* Zorgt dat ze op telefoons netjes onder elkaar schuiven als het niet past */
-            gap: 15px; /* Kleinere ruimte tussen de foto's */
-            margin-top: 30px;
-            margin-bottom: 40px;
-        }
-
-        .polaroid {
-            background: white;
-            padding: 8px 8px 15px 8px; /* Witte randje iets kleiner gemaakt */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            border-radius: 5px;
-            transform: rotate(-3deg); 
-            transition: transform 0.3s ease;
-        }
-        
-        /* Draai sommige foto's de andere kant op */
-        .polaroid:nth-child(even) { transform: rotate(4deg); }
-        
-        /* Zweef-effect bij muis erover */
-        .polaroid:hover { transform: scale(1.1) rotate(0deg); z-index: 10; position: relative; }
-
-        .polaroid img {
-            width: 130px; /* Foto's flink kleiner gemaakt (was 200px) */
-            height: 160px; /* Hoogte in verhouding aangepast */
-            object-fit: cover; 
-            border-radius: 3px;
-            display: block;
-        }
-
-        /* Het uiteindelijke cadeau gedeelte */
-        .cadeau-sectie {
-            border-top: 3px dashed #ffb3c6;
-            padding-top: 30px;
-            margin-top: 20px;
-        }
-
-        h2 { color: #ff4d85; font-size: 2.2em; margin-bottom: 10px; }
-        
-        /* De grote cadeaufoto kleiner gemaakt */
-        .niels-foto {
-            width: 100%;
-            max-width: 350px; /* Was 450px, past nu veel beter in het kader */
-            border: 6px solid white; /* Randje iets subtieler */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            border-radius: 10px;
-            transform: rotate(2deg);
-            margin-top: 20px;
-        }
+        .niels-foto { width: 100%; max-width: 350px; border: 6px solid white; box-shadow: 0 8px 20px rgba(0,0,0,0.2); border-radius: 10px; transform: rotate(2deg); margin-top: 20px; }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>Gefeliciteerd Demi! 🥂</h1>
-        <p class="hacker-msg">> SYSTEEM SUCCESVOL GEHACKT. TOEGANG VERLEEND.</p>
+        <h2>Jouw Cadeau 🎁</h2>
+        <p class="intro-text"><strong>We gaan samen heerlijk uit eten!</strong></p>
+        <p style="color: #777;">En zoals je kunt zien... ik heb geen keus, excuses worden niet geaccepteerd! 😉</p>
         
-        <p class="intro-text">Lieve Demi, je bent eindelijk 21 jaar geworden! Tijd om dit goed te vieren.</p>
-        
-        <div class="gallery">
-            <div class="polaroid"><img src="Foto1.png"></div>
-            <div class="polaroid"><img src="Foto2.png"></div>
-            <div class="polaroid"><img src="Foto3.png"></div>
-            <div class="polaroid"><img src="Foto4.png"></div>
-        </div>
-
-        <div class="cadeau-sectie">
-            <h2>Jouw Cadeau 🎁</h2>
-            <p class="intro-text"><strong>We gaan samen heerlijk uit eten!</strong></p>
-            <p style="color: #777;">En zoals je kunt zien... ik heb geen keus, excuses worden niet geaccepteerd! 😉</p>
-            
-            <img src="uitetenniels.png" alt="Niels moet mee uit eten" class="niels-foto">
-        </div>
+        <img src="uitetenniels.png" alt="Niels moet mee uit eten" class="niels-foto">
     </div>
-
 </body>
 </html>

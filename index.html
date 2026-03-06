@@ -2,15 +2,10 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Systeem Inbraak - Demi 21</title>
+    <title>Verjaardag - Demi 21</title>
     <style>
-        /* Basis styling voor de hacker-look */
         body { background-color: #000; margin: 0; overflow: hidden; font-family: 'Courier New', Courier, monospace; }
-        
-        /* Zorgt dat de Matrix letters op de achtergrond blijven */
         #matrix { position: fixed; top: 0; left: 0; z-index: -1; }
-
-        /* Het inlogkastje in het midden van het scherm */
         .login-box {
             position: absolute; top: 50%; left: 50%;
             transform: translate(-50%, -50%);
@@ -18,35 +13,29 @@
             padding: 40px; border: 2px solid #00ff00;
             box-shadow: 0 0 20px #00ff00; text-align: center; color: #00ff00;
         }
-
         input { 
             padding: 12px; width: 250px; background: #000; 
             border: 1px solid #00ff00; color: #00ff00; margin-bottom: 20px; 
             text-align: center; font-size: 1.1em; outline: none;
         }
-
         button { 
             padding: 10px 25px; background: #00ff00; color: #000; 
             border: none; cursor: pointer; font-weight: bold; font-size: 1em;
         }
-
         button:hover { background: #00cc00; box-shadow: 0 0 10px #00ff00; }
         .hint { color: #005500; font-size: 0.8em; margin-top: 15px; }
     </style>
 </head>
-<body>
-
+<body> 
     <canvas id="matrix"></canvas>
-
     <div class="login-box">
         <h1>SYSTEEM VERGRENDELD</h1>
-        <p>Toegang voorbehouden aan: <strong>DEMI</strong></p>
-        <input type="password" id="passwordInput" placeholder="VOER TOEGANGSCODE IN">
+        <p>Toegang krijg je niet zomaar: <strong>DEMI</strong></p>
+        <input type="password" id="passwordInput" placeholder="VOER TOEGANGSCODE IN" onkeydown="if(event.key === 'Enter') checkPassword()">
         <br>
         <button onclick="checkPassword()">ONTGRENDELEN</button>
-        <p class="hint">Systeemfout: Het staat ergens wat we allebij erg lekker vinden</p>
+        <p class="hint">Hint: zoek ergens waar wij beiden erg van kunnen smullen</p>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
