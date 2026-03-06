@@ -1,3 +1,4 @@
+//OP REGEL 29 IS HET WACHTWOORD ALLEEN WEL GEHASHED IN BASE64, DECODE HET EN JE KRIJGT HET WACHTWOORD.
 const canvas = document.getElementById('matrix');
 const ctx = canvas.getContext('2d');
 
@@ -24,6 +25,7 @@ function drawMatrix() {
 }
 setInterval(drawMatrix, 33);
 
+//DIT IS HET WACHTWOORD ALLEEN WEL GEHASHED IN BASE64, DECODE HET EN JE KRIJGT HET WACHTWOORD.
 const geheim = "RGVtaTIxUGFydHk="; 
 document.cookie = "Sessie_Sleutel=" + atob(geheim) + "; path=/; max-age=3600";
 
@@ -35,7 +37,7 @@ function checkPassword() {
 
     if (ingevoerdWachtwoord === correcteSleutel) {
         alert("TOEGANG VERLEEND. Welkom Demi.");
-        // AANGEPAST: Stuur haar eerst naar het lieve bericht!
+    
         window.location.href = "bericht.html"; 
     } else {
         alert("Niet gokken he Noobje");
