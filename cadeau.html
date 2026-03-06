@@ -3,20 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Gefeliciteerd!</title>
+    <script>
+        // Functie om de cookie op te zoeken
+        function checkToegang() {
+            const cookies = document.cookie.split('; ');
+            const cookieData = cookies.find(row => row.startsWith('Sessie_Sleutel='));
+            const waarde = cookieData ? cookieData.split('=')[1] : null;
+
+            // Als de cookie niet de juiste waarde heeft, stuur haar terug
+            if (waarde !== "Demi21Party") {
+                alert("GEEN TOEGANG: Je moet eerst het systeem hacken!");
+                window.location.href = "index.html";
+            }
+        }
+
+        // Voer de check direct uit bij het laden van de pagina
+        checkToegang();
+    </script>
     <style>
-        body { text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #ffe6f2; padding-top: 50px; }
+        body { text-align: center; font-family: sans-serif; background: #ffe6f2; padding-top: 50px; }
         .card { background: white; padding: 50px; display: inline-block; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        h1 { color: #ff0066; font-size: 3em; }
-        .gift { font-size: 1.5em; color: #333; margin-top: 20px; }
+        h1 { color: #ff0066; }
     </style>
 </head>
 <body>
     <div class="card">
         <h1>Gefeliciteerd Demi! 🎈</h1>
-        <p class="gift">Je bent nu officieel 21 jaar.</p>
+        <p>Je bent nu officieel 21 jaar en een gecertificeerd hacker.</p>
         <hr>
-        <p class="gift">Je hebt het systeem succesvol gehackt.</p>
-        <p class="gift"><strong>Jouw Cadeau:</strong> [TYP HIER JE CADEAU]</p>
+        <p><strong>Jouw Cadeau:</strong> [TYP HIER JE CADEAU]</p>
     </div>
 </body>
 </html>

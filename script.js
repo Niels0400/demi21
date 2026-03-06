@@ -25,8 +25,8 @@ function drawMatrix() {
 }
 setInterval(drawMatrix, 33);
 
-// --- 2. DE "HACK" LOGICA ---
-// Het wachtwoord in Base64 (dit is: "Demi21Party")
+
+// DIT IS HET WACHTWOORD in Base64 dus zoek het maar uit ;) je kan het ook ergens anders vinden mogelijk in wat we bijden lekker vinden ;)
 const geheim = "RGVtaTIxUGFydHk="; 
 
 // Plaats het wachtwoord in de cookie zodra de pagina laadt
