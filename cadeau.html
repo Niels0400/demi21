@@ -18,6 +18,9 @@
         checkToegang();
     </script>
     <style>
+        /* Zorgt dat randen (borders) geen elementen uitrekken */
+        * { box-sizing: border-box; }
+
         /* Vrolijke roze achtergrond */
         body { 
             background: linear-gradient(135deg, #ffd1ff 0%, #fae1dd 100%);
@@ -32,33 +35,33 @@
         /* Het witte 'kaartje' in het midden */
         .container {
             max-width: 800px;
+            width: 95%; /* Zorgt dat hij op kleinere schermen ook goed past */
             margin: 20px auto;
             background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
+            padding: 40px 20px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
         }
 
-        h1 { color: #ff4d85; font-size: 3em; margin-bottom: 5px; text-transform: uppercase; }
+        h1 { color: #ff4d85; font-size: 2.8em; margin-bottom: 5px; text-transform: uppercase; }
         .hacker-msg { font-family: 'Courier New', monospace; color: #888; font-size: 0.9em; margin-bottom: 30px; }
-        .intro-text { font-size: 1.3em; color: #555; }
+        .intro-text { font-size: 1.2em; color: #555; }
 
-        /* Polaroid Galerij Styling */
+        /* Polaroid Galerij Styling - Aangepast voor 4 op een rij */
         .gallery {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
+            flex-wrap: wrap; /* Zorgt dat ze op telefoons netjes onder elkaar schuiven als het niet past */
+            gap: 15px; /* Kleinere ruimte tussen de foto's */
+            margin-top: 30px;
             margin-bottom: 40px;
         }
 
         .polaroid {
             background: white;
-            padding: 10px 10px 20px 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            padding: 8px 8px 15px 8px; /* Witte randje iets kleiner gemaakt */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             border-radius: 5px;
-            /* Beetje schuin zetten voor een speels effect 
             transform: rotate(-3deg); 
             transition: transform 0.3s ease;
         }
@@ -66,30 +69,32 @@
         /* Draai sommige foto's de andere kant op */
         .polaroid:nth-child(even) { transform: rotate(4deg); }
         
-        /* Als ze er met de muis overheen gaat, wordt de foto recht en iets groter */
-        .polaroid:hover { transform: scale(1.05) rotate(0deg); z-index: 10; position: relative; }
+        /* Zweef-effect bij muis erover */
+        .polaroid:hover { transform: scale(1.1) rotate(0deg); z-index: 10; position: relative; }
 
         .polaroid img {
-            width: 200px;
-            height: 250px;
-            object-fit: cover; /* Zorgt dat de foto's mooi bijgesneden worden */
+            width: 130px; /* Foto's flink kleiner gemaakt (was 200px) */
+            height: 160px; /* Hoogte in verhouding aangepast */
+            object-fit: cover; 
             border-radius: 3px;
+            display: block;
         }
 
         /* Het uiteindelijke cadeau gedeelte */
         .cadeau-sectie {
             border-top: 3px dashed #ffb3c6;
-            padding-top: 40px;
+            padding-top: 30px;
             margin-top: 20px;
         }
 
-        h2 { color: #ff4d85; font-size: 2.5em; margin-bottom: 10px; }
+        h2 { color: #ff4d85; font-size: 2.2em; margin-bottom: 10px; }
         
+        /* De grote cadeaufoto kleiner gemaakt */
         .niels-foto {
             width: 100%;
-            max-width: 450px;
-            border: 8px solid white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            max-width: 350px; /* Was 450px, past nu veel beter in het kader */
+            border: 6px solid white; /* Randje iets subtieler */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             border-radius: 10px;
             transform: rotate(2deg);
             margin-top: 20px;
@@ -105,10 +110,10 @@
         <p class="intro-text">Lieve Demi, je bent eindelijk 21 jaar geworden! Tijd om dit goed te vieren.</p>
         
         <div class="gallery">
-            <div class="polaroid"><img src="Foto1.png" alt="Wij samen"></div>
-            <div class="polaroid"><img src="Foto2.png" alt="Wij samen lachend"></div>
-            <div class="polaroid"><img src="Foto3.png" alt="Wij samen lachend 2"></div>
-            <div class="polaroid"><img src="Foto4.png" alt="Demi met ijs"></div>
+            <div class="polaroid"><img src="foto1.jpg" alt="Wij samen"></div>
+            <div class="polaroid"><img src="foto2.jpg" alt="Wij samen lachend"></div>
+            <div class="polaroid"><img src="foto3.jpg" alt="Wij samen lachend 2"></div>
+            <div class="polaroid"><img src="foto4.jpg" alt="Demi met ijs"></div>
         </div>
 
         <div class="cadeau-sectie">
