@@ -2,23 +2,49 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Hacked by Demi?</title>
+    <title>Systeem Inbraak - Demi 21</title>
     <style>
-        body { background-color: #0d0d0d; color: #00ff00; font-family: 'Courier New', Courier, monospace; text-align: center; padding-top: 50px; }
-        input { padding: 10px; margin: 10px; border: 1px solid #00ff00; background: #222; color: #00ff00; }
-        button { padding: 10px 20px; background: #00ff00; color: #000; border: none; cursor: pointer; font-weight: bold; }
-        .hint { color: #555; font-size: 0.8em; margin-top: 20px; }
+        body { background-color: #000; margin: 0; overflow: hidden; font-family: 'Courier New', Courier, monospace; }
+        
+        /* De Matrix achtergrond */
+        #matrix { position: fixed; top: 0; left: 0; z-index: -1; }
+
+        /* Het inlogvenster */
+        .login-box {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 20, 0, 0.9);
+            padding: 40px; border: 2px solid #00ff00;
+            box-shadow: 0 0 20px #00ff00; text-align: center; color: #00ff00;
+        }
+
+        input { 
+            padding: 12px; width: 250px; background: #000; 
+            border: 1px solid #00ff00; color: #00ff00; margin-bottom: 20px; 
+            text-align: center; font-size: 1.1em;
+        }
+
+        button { 
+            padding: 10px 25px; background: #00ff00; color: #000; 
+            border: none; cursor: pointer; font-weight: bold; font-size: 1em;
+        }
+
+        button:hover { background: #00cc00; box-shadow: 0 0 10px #00ff00; }
+        .hint { color: #005500; font-size: 0.8em; margin-top: 15px; }
     </style>
 </head>
 <body>
-    <h1>Systeem Vergrendeld</h1>
-    <p>Voer de toegangscode in om het cadeau te ontgrendelen.</p>
-    
-    <input type="password" id="passwordInput" placeholder="Wachtwoord">
-    <br>
-    <button onclick="checkPassword()">Inloggen</button>
 
-    <p class="hint">Hint: Misschien staat de sleutel wel ergens in de 'source' van deze pagina?</p>
+    <canvas id="matrix"></canvas>
+
+    <div class="login-box">
+        <h1>SYSTEEM VERGRENDELD</h1>
+        <p>Toegang voorbehouden aan: <strong>DEMI</strong></p>
+        <input type="password" id="passwordInput" placeholder="VOER TOEGANGSCODE IN">
+        <br>
+        <button onclick="checkPassword()">ONTGRENDELEN</button>
+        <p class="hint">Systeemfout: Toegangscode opgeslagen in tijdelijke browser-cookies...</p>
+    </div>
 
     <script src="script.js"></script>
 </body>

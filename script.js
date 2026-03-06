@@ -1,28 +1,49 @@
-// Wanneer de pagina laadt, zetten we het geheime wachtwoord in de cookies.
-// We noemen de cookie 'Sessie_Sleutel' om het een beetje officieel te laten lijken.
-document.cookie = "Sessie_Sleutel=Demi21Party; path=/; max-age=3600"; 
+// --- 1. MATRIX ANIMATIE ---
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
 
-function getCookie(name) {
-    let nameEQ = name + "=";
-    let ca = document.cookie.split(';');
-    for(let i=0;i < ca.length;i++) {
-        let c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%";
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+const drops = Array(Math.floor(columns)).fill(1);
+
+function drawMatrix() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#0F0";
+    ctx.font = fontSize + "px arial";
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
     }
-    return null;
 }
+setInterval(drawMatrix, 33);
+
+// --- 2. DE "HACK" LOGICA ---
+// Het wachtwoord in Base64 (dit is: "Demi21Party")
+const geheim = "RGVtaTIxUGFydHk="; 
+
+// Plaats het wachtwoord in de cookie zodra de pagina laadt
+document.cookie = "Sessie_Sleutel=" + atob(geheim) + "; path=/; max-age=3600";
 
 function checkPassword() {
-    const userInput = document.getElementById('passwordInput').value;
+    const input = document.getElementById('passwordInput').value;
     
-    // We halen het wachtwoord nu op uit de cookies in plaats van uit de code
-    const secretFromCookie = getCookie("Sessie_Sleutel");
+    // Zoek de cookie waarde op
+    const cookies = document.cookie.split('; ');
+    const cookieData = cookies.find(row => row.startsWith('Sessie_Sleutel='));
+    const correctPassword = cookieData ? cookieData.split('=')[1] : null;
 
-    if (userInput === secretFromCookie) {
-        alert("Toegang verleend! Je hebt de cookie-hack voltooid.");
+    if (input === correctPassword) {
+        alert("TOEGANG VERLEEND. Welkom Demi.");
         window.location.href = "cadeau.html";
     } else {
-        alert("Foutief wachtwoord. Heb je de cookies al gecheckt?");
+        alert("FOUTIEVE CODE. Systeembeheerder heeft cookies achtergelaten.");
     }
 }
