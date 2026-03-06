@@ -18,24 +18,68 @@
             border: 1px solid #00ff00; color: #00ff00; margin-bottom: 20px; 
             text-align: center; font-size: 1.1em; outline: none;
         }
-        button { 
+        
+        /* De stijl voor de hoofdknop (ontgrendelen) */
+        .main-btn { 
             padding: 10px 25px; background: #00ff00; color: #000; 
             border: none; cursor: pointer; font-weight: bold; font-size: 1em;
         }
-        button:hover { background: #00cc00; box-shadow: 0 0 10px #00ff00; }
-        .hint { color: #005500; font-size: 0.8em; margin-top: 15px; }
+        .main-btn:hover { background: #00cc00; box-shadow: 0 0 10px #00ff00; }
+        
+        /* De stijl voor de nieuwe hint-knop */
+        .hint-btn {
+            background: transparent;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 5px 15px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+        .hint-btn:hover {
+            background: #005500;
+        }
+
+        /* De stijl voor de hint-tekst zelf (valt nu veel meer op!) */
+        .hint-text { 
+            color: #ffff00; /* Geel in plaats van donkergroen */
+            font-size: 1em; 
+            margin-top: 15px; 
+            text-shadow: 0 0 5px #ffff00; /* Een lichte gloed */
+            display: none; /* Standaard onzichtbaar! */
+        }
     </style>
 </head>
 <body> 
     <canvas id="matrix"></canvas>
+    
     <div class="login-box">
         <h1>SYSTEEM VERGRENDELD</h1>
         <p>Toegang krijg je niet zomaar: <strong>DEMI</strong></p>
+        
         <input type="password" id="passwordInput" placeholder="VOER TOEGANGSCODE IN" onkeydown="if(event.key === 'Enter') checkPassword()">
         <br>
-        <button onclick="checkPassword()">ONTGRENDELEN</button>
-        <p class="hint">Hint: zoek ergens waar wij beiden erg van kunnen smullen</p>
+        <button class="main-btn" onclick="checkPassword()">ONTGRENDELEN</button>
+        <br>
+        
+        <button class="hint-btn" onclick="toggleHint()">HULP NODIG?</button>
+        
+        <p id="hintText" class="hint-text">Hint: zoek ergens waar wij beiden erg van kunnen smullen 🍪</p>
     </div>
+
+    <script>
+        function toggleHint() {
+            var hint = document.getElementById("hintText");
+            // Als de hint onzichtbaar is, maak hem dan zichtbaar. Anders verberg je hem weer.
+            if (hint.style.display === "none" || hint.style.display === "") {
+                hint.style.display = "block";
+            } else {
+                hint.style.display = "none";
+            }
+        }
+    </script>
+
     <script src="script.js"></script>
 </body>
 </html>
