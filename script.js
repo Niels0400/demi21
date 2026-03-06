@@ -1,16 +1,28 @@
-// Hallo Demi! Als je dit leest, ben je goed aan het hacken.
+// Wanneer de pagina laadt, zetten we het geheime wachtwoord in de cookies.
+// We noemen de cookie 'Sessie_Sleutel' om het een beetje officieel te laten lijken.
+document.cookie = "Sessie_Sleutel=Demi21Party; path=/; max-age=3600"; 
 
-// We slaan het ook op in een cookie, voor het geval je daar zoekt:
-document.cookie = "access_token=DEMI21-GEFELICITEERD; path=/";
+function getCookie(name) {
+    let nameEQ = name + "=";
+    let ca = document.cookie.split(';');
+    for(let i=0;i < ca.length;i++) {
+        let c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
 
 function checkPassword() {
-    const input = document.getElementById('passwordInput').value;
-    const correctPassword = "DEMI21-GEFELICITEERD";
+    const userInput = document.getElementById('passwordInput').value;
+    
+    // We halen het wachtwoord nu op uit de cookies in plaats van uit de code
+    const secretFromCookie = getCookie("Sessie_Sleutel");
 
-    if (input === correctPassword) {
-        alert("Toegang verleend! Gefeliciteerd Demi!");
-        window.location.href = "cadeau.html"; // Stuurt haar naar de cadeau pagina
+    if (userInput === secretFromCookie) {
+        alert("Toegang verleend! Je hebt de cookie-hack voltooid.");
+        window.location.href = "cadeau.html";
     } else {
-        alert("Toegang geweigerd. Probeer dieper in de code te kijken!");
+        alert("Foutief wachtwoord. Heb je de cookies al gecheckt?");
     }
 }
